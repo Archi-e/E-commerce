@@ -3,7 +3,7 @@ package dev.archie.productservice.model;
 import java.util.Date;
 
 public class BaseModel {
-    private int id;
+    private Long id;
     private Date createdAt;
     private Date updatedAt;
     private boolean isDeleted;

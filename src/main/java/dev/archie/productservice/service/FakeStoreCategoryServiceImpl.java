@@ -1,39 +1,31 @@
-package dev.archie.productservice.controller;
+package dev.archie.productservice.service;
 
 import dev.archie.productservice.dto.CategoryDTO;
-import dev.archie.productservice.service.CategoryService;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/categories")
-public class CategoryController {
+public class FakeStoreCategoryServiceImpl implements CategoryService {
 
-    private CategoryService categoryService;
-
-    public CategoryController(CategoryService categoryService){
-        this.categoryService = categoryService;
-    }
-    @GetMapping()
+    @Override
     public String getAllCategories(){
         return "Returning all categories";
     }
 
-    @GetMapping("/{categoryId}")
+    @Override
     public String getAllProductsInCategory(@PathVariable("categoryId") Long categoryId){
         return "Returning all products with category id "+categoryId;
     }
 
-    @PostMapping()
+    @Override
     public String createCategory(@RequestBody CategoryDTO categoryDtO){
         return "Added new category";
     }
 
-    @PutMapping("/{categoryId}")
+    @Override
     public String updateCategory(@PathVariable("categoryId") Long categoryId, @RequestBody CategoryDTO categoryDTO){
         return "Updated Category";
     }
 
-    @DeleteMapping("/{categoryId}")
+    @Override
     public String deleteCategory(@PathVariable("categoryId") Long categoryId){
         return "Deleted Category with category id "+categoryId;
     }
